@@ -1,5 +1,9 @@
 # @gorealtime/client
 
+[![npm](https://img.shields.io/npm/v/@gorealtime/client)](https://www.npmjs.com/package/@gorealtime/client)
+
+The npm package is [@gorealtime/client](https://www.npmjs.com/package/@gorealtime/client).
+
 `@gorealtime/client` is the browser client for [gorealtime](https://github.com/prashanthyarram/gorealtime), a process-local realtime library for Go. This repository is only the client. The server stays in the Go repository.
 
 The server accepts a connection, gives it an id, and delivers JSON events until the peer leaves or the process shuts down. This package opens that connection, picks a transport, and delivers named events to your handlers. It does not store messages, replay them, manage users, or implement chat.
