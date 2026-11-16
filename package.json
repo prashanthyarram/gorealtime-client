@@ -1,0 +1,43 @@
+{
+  "name": "@gorealtime/client",
+  "version": "0.1.0",
+  "description": "Browser client for the gorealtime Go server. WebSocket, server-sent events, and long polling over the gorealtime protocol.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "examples",
+    "README.md",
+    "LICENSE"
+  ],
+  "author": "Prashanth Yarram",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prashanthyarram/gorealtime-client.git"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "tsc -p tsconfig.json && node --experimental-strip-types --test --test-timeout 120000 tests/*.test.ts",
+    "size": "node scripts/size.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "typescript": "^5.6.3"
+  },
+  "keywords": [
+    "gorealtime",
+    "websocket",
+    "sse",
+    "realtime"
+  ]
+}

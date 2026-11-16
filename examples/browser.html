@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>gorealtime browser example</title>
+  </head>
+  <body>
+    <p>Serve this folder and open the page. The client is loaded from the built package.</p>
+    <script type="module">
+      import { RealtimeClient } from "../dist/index.js";
+
+      const client = new RealtimeClient({
+        url: "http://127.0.0.1:8080/realtime",
+        automaticReconnect: true,
+      });
+
+      client.on("chat.message", (payload) => {
+        console.log("received", payload);
+      });
+
+      client.onLifecycle("transport", (name) => {
+        console.log("transport", name);
+      });
+
+      await client.connect();
+      await client.send("chat.send", { text: "hello from the browser" });
+    </script>
+  </body>
+</html>
